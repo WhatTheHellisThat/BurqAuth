@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BurqAuthHttpClient", "GenericAuthHttpClient\BurqAuthHttpClient.csproj", "{1C86C333-E626-4C69-805B-E90C823773E6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BurqAuthRestSharp", "GenericAuthRestSharp\BurqAuthRestSharp.csproj", "{615E1369-C5D2-481C-AFBA-1B086ABD6B4C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BurqAuth", "BurqAuth\BurqAuth.csproj", "{C4B4A2A7-E016-4EE6-8BDD-D2D9A45B4166}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1C86C333-E626-4C69-805B-E90C823773E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C86C333-E626-4C69-805B-E90C823773E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C86C333-E626-4C69-805B-E90C823773E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C86C333-E626-4C69-805B-E90C823773E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{615E1369-C5D2-481C-AFBA-1B086ABD6B4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{615E1369-C5D2-481C-AFBA-1B086ABD6B4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{615E1369-C5D2-481C-AFBA-1B086ABD6B4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{615E1369-C5D2-481C-AFBA-1B086ABD6B4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4B4A2A7-E016-4EE6-8BDD-D2D9A45B4166}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4B4A2A7-E016-4EE6-8BDD-D2D9A45B4166}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4B4A2A7-E016-4EE6-8BDD-D2D9A45B4166}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4B4A2A7-E016-4EE6-8BDD-D2D9A45B4166}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {62D0B57C-A68C-4C28-A200-F519CFBC7800}
+	EndGlobalSection
+EndGlobal

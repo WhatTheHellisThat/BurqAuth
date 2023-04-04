@@ -1,4 +1,6 @@
-﻿using RestSharp;
+﻿using Newtonsoft.Json.Schema.Generation;
+using Newtonsoft.Json.Schema;
+using RestSharp;
 using RestSharp.Authenticators;
 using System;
 using System.Threading.Tasks;
@@ -7,8 +9,8 @@ namespace BurqAuthRestSharp
 {
     public class AuthorizationBasic : AuthorizationBase
     {
-        private readonly string UserName;
-        private readonly string Password;
+        public readonly string UserName;
+        public readonly string Password;
 
         public AuthorizationBasic(string URL, string userName, string password) : base(URL)
         {
@@ -33,7 +35,12 @@ namespace BurqAuthRestSharp
             {
                 client = new RestClient(URL);
                 client.Authenticator = new HttpBasicAuthenticator(UserName, Password);
-                restRequest = new RestRequest(restMethod);
+
+                if (restRequest is null)
+                    restRequest = new RestRequest(restMethod);
+                else
+                    restRequest.Method = restMethod;
+
                 restResponse = await client.ExecuteAsync(restRequest);
                 response = restResponse.Content;
             }

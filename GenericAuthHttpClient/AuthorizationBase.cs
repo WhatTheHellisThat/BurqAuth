@@ -32,7 +32,7 @@ namespace BurqAuthHttpClient
             if (body is null)
                 throw new Exception("Body Can't be null");
 
-            httpContent = new StringContent(JsonConvert.SerializeObject(body), null, "text/plain");
+            httpContent = new StringContent(body, null, "text/plain");
         }
 
         public virtual void SetJsonBody(dynamic body)
@@ -45,22 +45,13 @@ namespace BurqAuthHttpClient
 
         public virtual void SetXMLBody(dynamic body)
         {
-            if (body is null)
-                throw new Exception("Body Can't be null");
-
-            httpContent = new StringContent(JsonConvert.SerializeObject(body), null, "application/xml");
+            throw new NotImplementedException();
         }
 
         public virtual void SetURLEncoded(Dictionary<string, string> parameters)
         {
         }
 
-        /// <summary>
-        /// Set Single Header key Value
-        /// </summary>
-        /// <param name="key"></param>
-        /// <param name="value"></param>
-        /// <exception cref="Exception"></exception>
         public virtual void SetHeader(string key, string value)
         {
             if (string.IsNullOrEmpty(key) || string.IsNullOrEmpty(value))
@@ -95,11 +86,6 @@ namespace BurqAuthHttpClient
                 tempParamter.Add(new KeyValuePair<string, string>(keyValuePair.Key, keyValuePair.Value));
 
             httpContent = new FormUrlEncodedContent(tempParamter.ToArray());
-        }
-
-        public virtual List<AuthorizationType> FetchSupportedAuth()
-        {
-            return new List<AuthorizationType>() { AuthorizationType.None };
         }
 
         internal string ProcessResponse(HttpResponseMessage clientResponse)

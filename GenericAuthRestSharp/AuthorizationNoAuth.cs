@@ -1,4 +1,5 @@
-﻿using RestSharp;
+﻿using Newtonsoft.Json.Schema.Generation;
+using RestSharp;
 using System;
 using System.Threading.Tasks;
 
@@ -19,6 +20,10 @@ namespace BurqAuthRestSharp
         {
             return RequestAsync(Method.POST).Result;
         }
+        public static string GetMetaData()
+        {
+            return new JSchemaGenerator().Generate(typeof(AuthorizationNoAuth)).ToString();
+        }
 
         protected override async Task<string> RequestAsync(Method restMethod)
         {
@@ -26,7 +31,11 @@ namespace BurqAuthRestSharp
             try
             {
                 client = new RestClient(URL);
-                restRequest = new RestRequest(restMethod);
+                if (restRequest is null)
+                    restRequest = new RestRequest(restMethod);
+                else
+                    restRequest.Method = restMethod;
+
                 restResponse = await client.ExecuteAsync(restRequest);
                 response = restResponse.Content;
             }

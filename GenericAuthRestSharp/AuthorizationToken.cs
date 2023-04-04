@@ -1,4 +1,5 @@
-﻿using RestSharp;
+﻿using Newtonsoft.Json.Schema.Generation;
+using RestSharp;
 using RestSharp.Authenticators;
 using System;
 using System.Threading.Tasks;
@@ -29,11 +30,12 @@ namespace BurqAuthRestSharp
             string response = string.Empty;
             try
             {
-                client = new RestClient(URL)
-                {
-                    Authenticator = new JwtAuthenticator(Token)
-                };
-                restRequest = new RestRequest(restMethod);
+                client = new RestClient(URL);
+                client.Authenticator = new JwtAuthenticator(Token);
+                if (restRequest is null)
+                    restRequest = new RestRequest(restMethod);
+                else
+                    restRequest.Method = restMethod;
                 restResponse = await client.ExecuteAsync(restRequest);
                 response = restResponse.Content;
             }

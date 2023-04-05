@@ -6,7 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GenericAuthHttpClient\BurqAuthHttpClient.csproj" />
     <ProjectReference Include="..\GenericAuthRestSharp\BurqAuthRestSharp.csproj" />
   </ItemGroup>
 

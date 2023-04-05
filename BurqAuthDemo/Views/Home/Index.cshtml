@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<br />
+<div class="row">
+    <label for="app-dropdown">Select application:</label>
+    <select id="app-dropdown" class="form-control">
+        <option value="">Select one</option>
+        <option value="Shopify">Shopify</option>
+        <option value="Magento">Magento</option>
+        <option value="WooCommerce">WooCommerce</option>
+    </select>
+</div>
+<br />
+<div class="row">
+    <label for="httpverb">Request Type</label>
+    <select name="httpverb" id="httpverb" class="form-control">
+        <option selected value="Get">GET</option>
+        <option value="Post">POST</option>
+    </select>
+</div>
+<br />
+<div>
+    <form id="my-form"></form>
+</div>

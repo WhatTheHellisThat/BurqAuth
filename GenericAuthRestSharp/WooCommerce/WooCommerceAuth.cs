@@ -1,8 +1,6 @@
 ﻿using Newtonsoft.Json.Schema.Generation;
 using RestSharp;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace BurqAuthRestSharp.WooCommerce
@@ -11,9 +9,9 @@ namespace BurqAuthRestSharp.WooCommerce
     {
         public AuthorizationBasic AuthorizationBasic;
 
-        public WooCommerceAuth(string URL, string consumerkey, string consumerSecret) : base(URL)
+        public WooCommerceAuth(string url, string consumerKey, string consumerSecret) : base(url)
         {
-            AuthorizationBasic = new AuthorizationBasic(URL, consumerkey, consumerSecret);
+            AuthorizationBasic = new AuthorizationBasic(url, consumerKey, consumerSecret);
         }
 
         public WooCommerceAuth(AuthorizationBasic authorizationBasic) : base(authorizationBasic.URL)
@@ -23,27 +21,22 @@ namespace BurqAuthRestSharp.WooCommerce
 
         public override async Task<string> GetAsync()
         {
-            Task<string> response = null;
-            await (response = AuthorizationBasic.GetAsync());
-            return response.Result;
+            return await AuthorizationBasic.GetAsync();
         }
-
 
         public override async Task<string> PostAsync()
         {
-            Task<string> response = null;
-            await (response = AuthorizationBasic.PostAsync());
-            return response.Result; ;
+            return await AuthorizationBasic.PostAsync();
         }
 
-        protected override Task<string> RequestAsync(Method RestMethod)
+        protected override Task<string> RequestAsync(Method restMethod)
         {
             throw new NotImplementedException();
         }
+
         public static string GetMetaData()
         {
             return new JSchemaGenerator().Generate(typeof(WooCommerceAuth)).ToString();
         }
-
     }
 }

@@ -2,7 +2,6 @@
 using RestSharp;
 using System;
 using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 
 namespace BurqAuthRestSharp
@@ -19,6 +18,7 @@ namespace BurqAuthRestSharp
 
         protected abstract Task<string> RequestAsync(Method RestMethod);
 
+        [JsonIgnore]
         public string URL { get; set; }
 
         public AuthorizationBase(string URL)

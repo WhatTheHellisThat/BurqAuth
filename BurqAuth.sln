@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BurqAuthRestSharp", "Generi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BurqAuth", "BurqAuth\BurqAuth.csproj", "{C4B4A2A7-E016-4EE6-8BDD-D2D9A45B4166}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BurqAuthDemo", "BurqAuthDemo\BurqAuthDemo.csproj", "{FBB8DF6F-BB81-4D51-A79A-3CD7DE005FF9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{C4B4A2A7-E016-4EE6-8BDD-D2D9A45B4166}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4B4A2A7-E016-4EE6-8BDD-D2D9A45B4166}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C4B4A2A7-E016-4EE6-8BDD-D2D9A45B4166}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBB8DF6F-BB81-4D51-A79A-3CD7DE005FF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBB8DF6F-BB81-4D51-A79A-3CD7DE005FF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBB8DF6F-BB81-4D51-A79A-3CD7DE005FF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBB8DF6F-BB81-4D51-A79A-3CD7DE005FF9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,24 +1,23 @@
 ﻿using Newtonsoft.Json.Schema.Generation;
 using RestSharp;
-using System;
-using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 
 namespace BurqAuthRestSharp.Magento
 {
     public class MagentoAuth : AuthorizationBase
     {
-        public readonly string UserName;
-        public readonly string Password;
-        private AuthorizationNoAuth AuthorizationNoAuth;
+        public string UserName { get; internal set; }
+        public string Password { get; internal set; }
+        public new string URL { get; internal set; }
 
+        AuthorizationNoAuth _authorizationNoAuth;
 
-
-        public MagentoAuth(string URL, string userName, string password) : base(URL)
+        public MagentoAuth(string url, string userName, string password) : base(url)
         {
             UserName = userName;
             Password = password;
-            AuthorizationNoAuth = new AuthorizationNoAuth(URL);
+            URL = url;
+            _authorizationNoAuth = new AuthorizationNoAuth(url);
         }
 
         public static string GetMetaData()
@@ -28,24 +27,19 @@ namespace BurqAuthRestSharp.Magento
 
         public override async Task<string> GetAsync()
         {
-            Task<string> response = null;
-            await (response = AuthorizationNoAuth.GetAsync());
-            return response.Result;
+            _authorizationNoAuth.SetJsonBody(new { username = UserName, password = Password });
+            return await _authorizationNoAuth.GetAsync();
         }
 
         public override async Task<string> PostAsync()
         {
-            Task<string> response = null;
-            AuthorizationNoAuth.SetJsonBody(new { username = UserName, password = Password });
-            await (response = AuthorizationNoAuth.PostAsync());
-            return response.Result;
-
+            _authorizationNoAuth.SetJsonBody(new { username = UserName, password = Password });
+            return await _authorizationNoAuth.PostAsync();
         }
 
         protected override Task<string> RequestAsync(Method restMethod)
         {
-            throw new NotImplementedException();
+            throw new System.NotImplementedException();
         }
-
     }
 }

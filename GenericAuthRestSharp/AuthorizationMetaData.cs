@@ -1,7 +1,4 @@
-﻿using BurqAuthRestSharp.Magento;
-using BurqAuthRestSharp.Shopify;
-using BurqAuthRestSharp.WooCommerce;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace BurqAuthRestSharp
@@ -10,9 +7,14 @@ namespace BurqAuthRestSharp
     {
         private static readonly IDictionary<string, Func<string>> AppMetadataMap = new Dictionary<string, Func<string>>(StringComparer.OrdinalIgnoreCase)
         {
-            ["shopify"] = ShopifyAuth.GetMetaData,
-            ["magento"] = MagentoAuth.GetMetaData,
-            ["woocommerce"] = WooCommerceAuth.GetMetaData
+            ["ShopifyToken"] = ShopifyTokenAuth.GetMetaData,
+            ["ShopifyBasic"] = ShopifyBasicAuth.GetMetaData,
+            ["Magento"] = MagentoAuth.GetMetaData,
+            ["Woocommerce"] = WooCommerceAuth.GetMetaData,
+            ["Http"] = HttpAuth.GetMetaData,
+            ["HttpBasic"] = HttpBasicAuth.GetMetaData,
+            ["HttpToken"] = HttpTokenAuth.GetMetaData,
+
             // Add Apps Here
         };
 

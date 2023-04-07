@@ -21,7 +21,6 @@ namespace BurqAuthHttpClient.Shopify
             AuthorizationToken = authorizationToken;
         }
 
-
         public override async Task<string> GetAsync()
         {
             Task<string> response = null;

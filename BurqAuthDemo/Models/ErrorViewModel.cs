@@ -1,5 +1,3 @@
-using System;
-
 namespace BurqAuthDemo.Models
 {
     public class ErrorViewModel

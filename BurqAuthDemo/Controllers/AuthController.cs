@@ -1,9 +1,7 @@
 ﻿using BurqAuthRestSharp;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
-using System.Reflection;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -13,7 +11,6 @@ namespace BurqAuthDemo.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
-
         [HttpGet]
         public IActionResult GetMetaData(string appName)
         {
@@ -41,29 +38,8 @@ namespace BurqAuthDemo.Controllers
         [Route("test")]
         public IActionResult TestCreds([FromBody] JObject formData)
         {
-            Assembly assembly = Assembly.Load("BurqAuthRestSharp");
-
-            // Load the class by its name
-            string className = $"BurqAuthRestSharp.{formData["app"]}.{formData["app"]}Auth";
-            Type type = assembly.GetType(className);
-
-            if (type != null)
-            {
-                // Create an instance of the class
-                object instance = JsonConvert.DeserializeObject(formData.ToString(), type);
-
-                // Invoke a method on the instance
-                string methodName = $"{formData["method"]}Async";
-                MethodInfo methodInfo = type.GetMethod(methodName);
-
-                if (methodInfo != null)
-                {
-                    var result = methodInfo.Invoke(instance, null);
-                }
-            }
-
-            // Return a JSON response indicating success
-            return Ok(new { message = "Credentials test successful" });
+            string appName = formData["app"].ToString();
+            return Ok(new { message = AuthorizationValidator.Validate(appName, formData) });
         }
     }
 }

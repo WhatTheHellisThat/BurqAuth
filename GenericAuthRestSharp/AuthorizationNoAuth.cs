@@ -1,14 +1,19 @@
-﻿using Newtonsoft.Json.Schema.Generation;
+﻿using Json.Schema;
+using Json.Schema.Generation;
 using RestSharp;
 using System;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace BurqAuthRestSharp
 {
     public class AuthorizationNoAuth : AuthorizationBase
     {
-        public AuthorizationNoAuth(string URL) : base(URL)
+        public string URL { get; internal set; }
+
+        public AuthorizationNoAuth(string url)
         {
+            URL = url;
         }
 
         public override async Task<string> GetAsync()
@@ -20,9 +25,10 @@ namespace BurqAuthRestSharp
         {
             return RequestAsync(Method.POST).Result;
         }
+
         public static string GetMetaData()
         {
-            return new JSchemaGenerator().Generate(typeof(AuthorizationNoAuth)).ToString();
+            return JsonSerializer.Serialize(new JsonSchemaBuilder().FromType<AuthorizationNoAuth>().Build());
         }
 
         protected override async Task<string> RequestAsync(Method restMethod)

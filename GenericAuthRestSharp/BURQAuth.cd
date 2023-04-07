@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BurqAuthRestSharp.AuthorizationBase" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAgAAAAAAIAAIhAQAAAAEAAAAAQAAJQAAgAA=</HashCode>
+      <FileName>AuthorizationBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BurqAuthRestSharp.AuthorizationBasic" Collapsed="true">
+    <Position X="7.25" Y="1.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAgAAAAAAAAAAgAAAACAAAAACAQAAIAAAAAA=</HashCode>
+      <FileName>AuthorizationBasic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BurqAuthRestSharp.AuthorizationMetaData" Collapsed="true">
+    <Position X="17" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>AuthorizationMetaData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BurqAuthRestSharp.AuthorizationNoAuth" Collapsed="true">
+    <Position X="1.5" Y="1.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAgAAAAAAAAAAgAAAACAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>AuthorizationNoAuth.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BurqAuthRestSharp.AuthorizationToken" Collapsed="true">
+    <Position X="13.25" Y="1.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAgAAAAAAAAAAgAAAACAAAAAAAAAAIAABAAA=</HashCode>
+      <FileName>AuthorizationToken.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BurqAuthRestSharp.AuthorizationValidator" Collapsed="true">
+    <Position X="18.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AuthorizationValidator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BurqAuthRestSharp.MagentoAuth" Collapsed="true">
+    <Position X="0.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAgAAAAAAAAAAAAAAACAAAAACAQAAAAAAAAA=</HashCode>
+      <FileName>Magento\MagentoAuth.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BurqAuthRestSharp.HttpAuth" Collapsed="true">
+    <Position X="2.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Http\HttpAuth.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BurqAuthRestSharp.HttpBasicAuth" Collapsed="true">
+    <Position X="9" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Http\HttpBasicAuth.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BurqAuthRestSharp.HttpTokenAuth" Collapsed="true">
+    <Position X="12" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Http\HttpTokenAuth.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BurqAuthRestSharp.ShopifyBasicAuth" Collapsed="true">
+    <Position X="7.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Shopify\ShopifyBasicAuth.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BurqAuthRestSharp.ShopifyTokenAuth" Collapsed="true">
+    <Position X="14.25" Y="3.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAQEAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Shopify\ShopifyTokenAuth.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BurqAuthRestSharp.WooCommerceAuth" Collapsed="true">
+    <Position X="5.75" Y="3.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>WooCommerce\WooCommerceAuth.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="BurqAuthRestSharp.AuthorizationType" Collapsed="true">
+    <Position X="17" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGBAAA=</HashCode>
+      <FileName>AuthorizationType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -7,9 +7,21 @@
     <label for="app-dropdown">Select application:</label>
     <select id="app-dropdown" class="form-control">
         <option value="">Select one</option>
-        <option value="Shopify">Shopify</option>
-        <option value="Magento">Magento</option>
-        <option value="WooCommerce">WooCommerce</option>
+        <optgroup label="Shopify">
+            <option value="ShopifyBasic">Shopify Basic</option>
+            <option value="ShopifyToken">Shopify Token</option>
+        </optgroup>
+        <optgroup label="Magento">
+            <option value="Magento">Magento</option>
+        </optgroup>
+        <optgroup label="WooCommerce">
+            <option value="WooCommerce">WooCommerce</option>
+        </optgroup>
+        <optgroup label="Rest/Http">
+            <option value="Http">Http No Auth</option>
+            <option value="HttpBasic">Http Basic</option>
+            <option value="HttpToken">Http Token</option>
+        </optgroup>
     </select>
 </div>
 <br />

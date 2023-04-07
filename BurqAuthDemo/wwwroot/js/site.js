@@ -37,8 +37,6 @@ $(document).ready(function () {
         }
     });
 
-
-
     $("#my-form").submit(function (event) {
         event.preventDefault();
 
@@ -53,14 +51,14 @@ $(document).ready(function () {
         // Add the HTTP verb to the form data
         formData["method"] = $("#httpverb").val();
 
-        // Create an empty headers object
-        const headers = {};
+        // Create an empty headers array
+        const headers = [];
 
         // Loop through each header pair element and add the key-value pairs to the headers object
-        $('.header-pair').each(function () {
-            const key = $(this).find('.header-key').val();
-            const value = $(this).find('.header-value').val();
-            headers[key] = value;
+        $("#header-fields #header-pair").each(function () {
+            const key = $(this).find("#header-key input").val();
+            const value = $(this).find("#header-value input").val();
+            headers.push({ key: key, value: value });
         });
 
         // Add the headers object to the formData object
@@ -81,7 +79,6 @@ $(document).ready(function () {
                 console.log("Error:", textStatus, errorThrown);
             }
         });
-
     });
 
     function clearForm() {
@@ -105,10 +102,10 @@ $(document).ready(function () {
         // Add a submit button
         var submitButton = $("<button>").attr("type", "submit").text("Save").addClass("btn btn-primary");
         form.append(submitButton);
+        $('#headers').parent().hide();
     }
 
     function defaultHeaderSection() {
-
         var form = $("#my-form");
         var headerDiv = $("<div>").attr("id", "header-section");
         var headerTitle = $("<h4>").text("Headers");
@@ -116,9 +113,11 @@ $(document).ready(function () {
         headerDiv.append(headerTitle, headerFields, addHeaderButton);
         form.append(headerDiv);
 
-        var addHeaderButton = $("<button>").text("Add Header").on("click", addHeaderField).addClass("btn btn-primary");
+        var addHeaderButton = $("<button>").text("Add Header").on("click", function (event) {
+            event.preventDefault(); // Prevent form submission
+            addHeaderField();
+        }).addClass("btn btn-primary");
         form.append(addHeaderButton);
-
     }
 
     function addHeaderField() {
@@ -129,7 +128,6 @@ $(document).ready(function () {
         var label = $("<label>").attr("for", key).text("Key");
         var input = $("<input>").attr("type", "text").attr("name", key).attr("id", key).addClass("form-control");
         headerKey.append(label, input);
-
 
         key = "header-value";
         var headerValue = $("<div>").attr("id", key).addClass("col-sm-5");

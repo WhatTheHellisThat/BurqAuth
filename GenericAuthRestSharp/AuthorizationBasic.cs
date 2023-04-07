@@ -1,19 +1,22 @@
-﻿using Newtonsoft.Json.Schema.Generation;
-using Newtonsoft.Json.Schema;
+﻿using Json.Schema;
+using Json.Schema.Generation;
 using RestSharp;
 using RestSharp.Authenticators;
 using System;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace BurqAuthRestSharp
 {
     public class AuthorizationBasic : AuthorizationBase
     {
-        public readonly string UserName;
-        public readonly string Password;
+        public new string URL { get; internal set; }
+        public string UserName { get; internal set; }
+        public string Password { get; internal set; }
 
-        public AuthorizationBasic(string URL, string userName, string password) : base(URL)
+        public AuthorizationBasic(string url, string userName, string password)
         {
+            URL = url;
             UserName = userName;
             Password = password;
         }
@@ -26,6 +29,11 @@ namespace BurqAuthRestSharp
         public override async Task<string> GetAsync()
         {
             return RequestAsync(Method.GET).Result;
+        }
+
+        public static string GetMetaData()
+        {
+            return JsonSerializer.Serialize(new JsonSchemaBuilder().FromType<AuthorizationBasic>().Build());
         }
 
         protected override async Task<string> RequestAsync(Method restMethod)

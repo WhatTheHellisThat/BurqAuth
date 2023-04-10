@@ -35,7 +35,7 @@ namespace BurqAuthDemo.Controllers
         }
 
         [HttpPost]
-        [Route("test")]
+        [Route("Test")]
         public IActionResult TestCreds([FromBody] JObject formData)
         {
             string appName = formData["app"].ToString();

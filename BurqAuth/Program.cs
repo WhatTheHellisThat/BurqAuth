@@ -1,9 +1,4 @@
-﻿using BurqAuthRestSharp;
-using BurqAuthRestSharp.Magento;
-using BurqAuthRestSharp.Shopify;
-using BurqAuthRestSharp.WooCommerce;
-using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
 namespace BurqAuth
 {

@@ -1,13 +1,16 @@
 ﻿using Json.Schema;
 using Json.Schema.Generation;
 using System.Text.Json;
-using System.Threading.Tasks;
+using System.Text.Json.Serialization;
 
 namespace BurqAuthRestSharp
 {
     public class ShopifyTokenAuth : AuthorizationToken
     {
-        public string StoreName { get; set; }
+        [JsonExclude]
+        public override string URL { get; internal set; }
+
+        public string StoreName { get; internal set; }
 
         private static readonly string urlFormat = "https://{0}.myshopify.com/admin/orders.json";
 
@@ -23,10 +26,10 @@ namespace BurqAuthRestSharp
             return JsonSerializer.Serialize(new JsonSchemaBuilder().FromType<ShopifyTokenAuth>().Build());
         }
 
-        public override async Task<string> GetAsync()
+        public override string Get()
         {
             restRequest.AddHeader("X-Shopify-Access-Token", Token);
-            return await base.GetAsync();
+            return base.Get();
         }
     }
 }

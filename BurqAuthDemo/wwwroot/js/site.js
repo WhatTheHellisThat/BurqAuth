@@ -64,6 +64,20 @@ $(document).ready(function () {
         // Add the headers object to the formData object
         formData["headers"] = headers;
 
+
+        // Create an empty headers array
+        const queryParam = [];
+
+        // Loop through each header pair element and add the key-value pairs to the headers object
+        $("#queryparam-fields #queryparam-pair").each(function () {
+            const key = $(this).find("#queryparam-key input").val();
+            const value = $(this).find("#queryparam-value input").val();
+            queryParam.push({ key: key, value: value });
+        });
+
+        // Add the headers object to the formData object
+        formData["queryParameters"] = queryParam;
+
         // Log the form data and headers to the console
         console.log("Form data:", formData);
 
@@ -90,14 +104,26 @@ $(document).ready(function () {
 
         var form = $("#my-form");
         $.each(schema.properties, function (key, value) {
-            var label = $("<label>").attr("for", key).text(key);
-            var input = $("<input>").attr("type", "text").attr("name", key).attr("id", key).addClass("form-control");;
-            var container = $("<div>").addClass("row form-group").append(label).append(input);
-            form.append(container);
+            if (key != "Headers" && key != "QueryParameters" && key != "JsonBody") {
+                var label = $("<label>").attr("for", key).text(key);
+                var input = $("<input>").attr("type", "text").attr("name", key).attr("id", key).attr("required", true).addClass("form-control");;
+                var container = $("<div>").addClass("row form-group").append(label).append(input);
+                form.append(container);
+            }
         });
 
         //Header
-        defaultHeaderSection();
+        CreateHeaderSection();
+
+        form.append("<br/>");
+
+        //QueryParam
+        CreateQueryParameterSection();
+
+        form.append("<br/>", "<br/>");
+
+        //Body
+        CreateBodySection();
 
         // Add a submit button
         var submitButton = $("<button>").attr("type", "submit").text("Save").addClass("btn btn-primary");
@@ -105,12 +131,13 @@ $(document).ready(function () {
         $('#headers').parent().hide();
     }
 
-    function defaultHeaderSection() {
+    //Header
+    function CreateHeaderSection() {
         var form = $("#my-form");
         var headerDiv = $("<div>").attr("id", "header-section");
         var headerTitle = $("<h4>").text("Headers");
         var headerFields = $("<div>").attr("id", "header-fields");
-        headerDiv.append(headerTitle, headerFields, addHeaderButton);
+        headerDiv.append(headerTitle, headerFields);
         form.append(headerDiv);
 
         var addHeaderButton = $("<button>").text("Add Header").on("click", function (event) {
@@ -126,13 +153,13 @@ $(document).ready(function () {
         var key = "header-key";
         var headerKey = $("<div>").attr("id", key).addClass("col-sm-5");
         var label = $("<label>").attr("for", key).text("Key");
-        var input = $("<input>").attr("type", "text").attr("name", key).attr("id", key).addClass("form-control");
+        var input = $("<input>").attr("type", "text").attr("name", key).attr("id", key).attr("required", true).addClass("form-control");
         headerKey.append(label, input);
 
         key = "header-value";
         var headerValue = $("<div>").attr("id", key).addClass("col-sm-5");
         label = $("<label>").attr("for", key).text("value");
-        input = $("<input>").attr("type", "text").attr("name", key).attr("id", key).addClass("form-control");
+        input = $("<input>").attr("type", "text").attr("name", key).attr("id", key).attr("required", true).addClass("form-control");
         headerValue.append(label, input);
 
         key = "delete-btn";
@@ -146,5 +173,71 @@ $(document).ready(function () {
 
     function deleteHeaderField() {
         $('.header-pair').last().remove();
+    }
+
+    //  Query Param
+    function CreateQueryParameterSection() {
+        var form = $("#my-form");
+        var queryparamDiv = $("<div>").attr("id", "queryparam-section");
+        var queryparamTitle = $("<h4>").text("Query Parameter");
+        var queryparamFields = $("<div>").attr("id", "queryparam-fields");
+        queryparamDiv.append(queryparamTitle, queryparamFields);
+        form.append(queryparamDiv);
+
+        var addQueryparamButton = $("<button>").text("Add Query Param").on("click", function (event) {
+            event.preventDefault(); // Prevent form submission
+            addQueryparamField();
+        }).addClass("btn btn-primary");
+
+        form.append(addQueryparamButton);
+    }
+
+    function addQueryparamField() {
+        var queryparamPair = $("<div>").attr("id", "queryparam-pair").addClass("row queryparam-pair");
+
+        var key = "queryparam-key";
+        var queryparamKey = $("<div>").attr("id", key).addClass("col-sm-5");
+        var label = $("<label>").attr("for", key).text("Key");
+        var input = $("<input>").attr("type", "text").attr("name", key).attr("id", key).attr("required", true).addClass("form-control");
+        queryparamKey.append(label, input);
+
+        key = "queryparam-value";
+        var queryparamValue = $("<div>").attr("id", key).addClass("col-sm-5");
+        label = $("<label>").attr("for", key).text("value");
+        input = $("<input>").attr("type", "text").attr("name", key).attr("id", key).attr("required", true).addClass("form-control");
+        queryparamValue.append(label, input);
+
+        key = "delete-btn";
+        var deletebutton = $("<div>").attr("id", key).addClass("col-sm-2");
+        var addQueryparamButton = $("<button>").text("Delete").on("click", deleteQueryparamField).addClass("btn btn-danger form-control");
+        deletebutton.append(addQueryparamButton);
+        queryparamPair.append(queryparamKey, queryparamValue, deletebutton);
+
+        $('#queryparam-fields').append(queryparamPair, "<br/>");
+    }
+
+    function deleteQueryparamField() {
+        $('.queryparam-pair').last().remove();
+    }
+
+    //Body
+    function CreateBodySection() {
+        var form = $("#my-form");
+
+        var bodyContainer = $("<div>").attr("id", "body").addClass("form-group");
+        var label = $("<label>").attr("for", "body").text("Body");
+        var textarea = $("<textarea>").attr("name", "body").attr("id", "body").attr("rows", 5).addClass("form-control");
+        bodyContainer.append(label).append(textarea);
+
+        var contentTypeSelect = $("<select>").attr("name", "ContentType").addClass("form-control");
+        var optionJson = $("<option>").attr("value", "application/json").text("JSON");
+        var optionXml = $("<option>").attr("value", "application/xml").text("XML");
+        contentTypeSelect.append(optionJson).append(optionXml);
+
+        var contentTypeContainer = $("<div>").addClass("form-group");
+        var contentTypeLabel = $("<label>").attr("for", "ContentType").text("Content Type");
+        contentTypeContainer.append(contentTypeLabel).append(contentTypeSelect);
+
+        form.append(bodyContainer).append(contentTypeContainer);
     }
 });

@@ -1,7 +1,6 @@
 ﻿using Json.Schema;
 using Json.Schema.Generation;
 using System.Text.Json;
-using System.Threading.Tasks;
 
 namespace BurqAuthRestSharp
 {
@@ -23,10 +22,10 @@ namespace BurqAuthRestSharp
             return JsonSerializer.Serialize(new JsonSchemaBuilder().FromType<MagentoAuth>().Build());
         }
 
-        public override async Task<string> PostAsync()
+        public override string Post()
         {
             restRequest.AddJsonBody(new { username = UserName, password = Password });
-            return await base.PostAsync();
+            return base.Post();
         }
     }
 }

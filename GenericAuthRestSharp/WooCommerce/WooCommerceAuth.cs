@@ -1,5 +1,6 @@
 ﻿using Json.Schema;
 using Json.Schema.Generation;
+using System.Text.Json;
 
 namespace BurqAuthRestSharp
 {
@@ -13,7 +14,7 @@ namespace BurqAuthRestSharp
 
         public static string GetMetaData()
         {
-            return new JsonSchemaBuilder().FromType<WooCommerceAuth>().Build().ToString();
+            return JsonSerializer.Serialize(new JsonSchemaBuilder().FromType<WooCommerceAuth>().Build());
         }
     }
 }

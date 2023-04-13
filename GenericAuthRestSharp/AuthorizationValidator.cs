@@ -21,13 +21,12 @@ namespace BurqAuthRestSharp
                 object instance = JsonConvert.DeserializeObject(json.ToString(), type);
 
                 // Invoke a method on the instance
-                string methodName = $"{json["method"]}Async";
-                MethodInfo methodInfo = type.GetMethod(methodName);
+                MethodInfo methodInfo = type.GetMethod($"{json["method"]}");
 
                 if (methodInfo != null)
                 {
                     dynamic methodResult = methodInfo.Invoke(instance, null);
-                    result = methodResult.Result;
+                    result = methodResult;
                 }
             }
             return result;

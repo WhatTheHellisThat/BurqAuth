@@ -1,101 +1,94 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="BurqAuthRestSharp.MagentoAuth">
-    <Position X="11" Y="8.25" Width="1.5" />
+  <Class Name="BurqAuthRestSharp.MagentoAuth" Collapsed="true">
+    <Position X="17.75" Y="7.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAEAAAgAAAAAAAAAAAAAAACAAAAACAQAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAACCAAAAACAQAAAAAAAAA=</HashCode>
       <FileName>Magento\MagentoAuth.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="BurqAuthRestSharp.HttpAuth">
-    <Position X="13.25" Y="8.25" Width="1.5" />
+  <Class Name="BurqAuthRestSharp.HttpAuth" Collapsed="true">
+    <Position X="20" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Http\HttpAuth.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="BurqAuthRestSharp.HttpBasicAuth">
-    <Position X="6.25" Y="8.5" Width="1.5" />
+  <Class Name="BurqAuthRestSharp.HttpBasicAuth" Collapsed="true">
+    <Position X="13" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Http\HttpBasicAuth.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="BurqAuthRestSharp.HttpTokenAuth">
-    <Position X="18" Y="8.25" Width="1.5" />
+  <Class Name="BurqAuthRestSharp.HttpTokenAuth" Collapsed="true">
+    <Position X="24.75" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Http\HttpTokenAuth.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="BurqAuthRestSharp.ShopifyBasicAuth">
-    <Position X="4" Y="8.5" Width="1.5" />
+  <Class Name="BurqAuthRestSharp.ShopifyBasicAuth" Collapsed="true">
+    <Position X="10.75" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Shopify\ShopifyBasicAuth.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="BurqAuthRestSharp.ShopifyTokenAuth">
-    <Position X="15.5" Y="8.25" Width="1.75" />
+  <Class Name="BurqAuthRestSharp.ShopifyTokenAuth" Collapsed="true">
+    <Position X="22.25" Y="7.25" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAAAQEAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <HashCode>AAAAQEAAAAEAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Shopify\ShopifyTokenAuth.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="BurqAuthRestSharp.WooCommerceAuth">
-    <Position X="8.5" Y="8.5" Width="1.75" />
+  <Class Name="BurqAuthRestSharp.WooCommerceAuth" Collapsed="true">
+    <Position X="15.25" Y="7.25" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>WooCommerce\WooCommerceAuth.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="BurqAuthRestSharp.AuthorizationBase">
-    <Position X="11" Y="1.25" Width="1.75" />
+  <Class Name="BurqAuthRestSharp.AuthorizationBase" Collapsed="true">
+    <Position X="17.75" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAgAAAAAAAAAIgAAAAAAAAAAAAQAAJAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAACABAQAAIgAAACAAAAAAAIQAABAAAAAA=</HashCode>
       <FileName>AuthorizationBase.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="BurqAuthRestSharp.AuthorizationBasic">
-    <Position X="6.25" Y="5" Width="1.75" />
+  <Class Name="BurqAuthRestSharp.AuthorizationBasic" Collapsed="true">
+    <Position X="13" Y="5.75" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAEAAAgAAAAAAAAAAgAAAACAAAAACAQAAIAAAAAA=</HashCode>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAgAAAACAAAAACAQAAAAAAAAA=</HashCode>
       <FileName>AuthorizationBasic.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BurqAuthRestSharp.AuthorizationMetaData" Collapsed="true">
-    <Position X="20.5" Y="1.25" Width="2" />
+    <Position X="27.25" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
       <FileName>AuthorizationMetaData.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="BurqAuthRestSharp.AuthorizationNoAuth">
-    <Position X="12" Y="5" Width="1.75" />
+  <Class Name="BurqAuthRestSharp.AuthorizationNoAuth" Collapsed="true">
+    <Position X="18.75" Y="5.75" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAEAAAgAAAAAAAAAAgAAAACAAAAAAAAAAIAAAAAA=</HashCode>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAgAAAACAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>AuthorizationNoAuth.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="BurqAuthRestSharp.AuthorizationToken">
-    <Position X="16.75" Y="5" Width="1.75" />
+  <Class Name="BurqAuthRestSharp.AuthorizationToken" Collapsed="true">
+    <Position X="23.5" Y="5.75" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAEAAAgAAAAAAAAAAgAAAACAAAAAAAAAAIAABAAA=</HashCode>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAgAAAACAAAAAAAAAAAAABAAA=</HashCode>
       <FileName>AuthorizationToken.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BurqAuthRestSharp.AuthorizationValidator" Collapsed="true">
-    <Position X="22.75" Y="1.25" Width="2" />
+    <Position X="29" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>AuthorizationValidator.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="BurqAuthRestSharp.Header" Collapsed="true">
-    <Position X="20.5" Y="2.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
-      <FileName>Header.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

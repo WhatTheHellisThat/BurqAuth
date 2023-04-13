@@ -9,21 +9,11 @@ namespace BurqAuthRestSharp
 {
     public class AuthorizationNoAuth : AuthorizationBase
     {
-        public string URL { get; internal set; }
+        public virtual string URL { get; internal set; }
 
         public AuthorizationNoAuth(string url)
         {
             URL = url;
-        }
-
-        public override async Task<string> GetAsync()
-        {
-            return RequestAsync(Method.GET).Result;
-        }
-
-        public override async Task<string> PostAsync()
-        {
-            return RequestAsync(Method.POST).Result;
         }
 
         public static string GetMetaData()
@@ -33,23 +23,17 @@ namespace BurqAuthRestSharp
 
         protected override async Task<string> RequestAsync(Method restMethod)
         {
-            string response = string.Empty;
             try
             {
-                client = new RestClient(URL);
-                if (restRequest is null)
-                    restRequest = new RestRequest(restMethod);
-                else
-                    restRequest.Method = restMethod;
-
-                restResponse = await client.ExecuteAsync(restRequest);
-                response = restResponse.Content;
+                var client = new RestClient(URL);
+                base.prepareRequest(restMethod);
+                var restResponse = await client.ExecuteAsync(restRequest);
+                return restResponse.Content;
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.ToString());
             }
-            return response;
         }
     }
 }
